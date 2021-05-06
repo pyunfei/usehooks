@@ -1,8 +1,11 @@
 import './App.css';
+import { useState, memo } from 'react'
 
 import useToggle from './hooks/toggle'
 import useAsync from './hooks/async'
 import useEventListener from './hooks/event'
+import useWhyDidYouUpdate from './hooks/update'
+import useTheme from './hooks/theme'
 
 
 function App() {
@@ -24,9 +27,40 @@ function App() {
     console.log('event', x, y);
   })
 
+  useTheme({
+    "button-padding": "16px",
+    "button-font-size": "14px",
+    "button-border-radius": "4px",
+    "button-border": "none",
+    "button-color": "#FFF",
+    "button-background": "#6772e5",
+    "button-hover-border": "none",
+    "button-hover-color": "#FFF",
+  })
+
+  const [count, setCount] = useState(0);
+
+  const Counter = memo((props) => {
+    useWhyDidYouUpdate("Counter", props);
+    return <div style={props.style}>{props.count}</div>;
+  });
+
+
   return (
     <div className="App">
       <header className="App-header">
+        {/* theme */}
+        {/* <button className="button">Button</button> */}
+        <hr />
+        {/* update */}
+        <div>
+          <div className="counter">
+            <Counter count={count} style={{ fontSize: "3rem", color: "red", }} />
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+          </div>
+        </div>
+        <hr />
+        {/* async */}
         <div>
           {status === "idle" && <div>Start your journey by clicking a button</div>}
           {status === "success" && <div>{value}</div>}
@@ -35,9 +69,8 @@ function App() {
             {status !== "pending" ? "Click me" : "Loading..."}
           </button>
         </div>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <hr />
+        {/* toggle */}
         <button onClick={setToggle}>{state ? 'Toggled' : 'Click to Toggle'}</button>
       </header>
     </div>
