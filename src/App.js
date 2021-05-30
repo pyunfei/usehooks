@@ -8,6 +8,9 @@ import useWhyDidYouUpdate from './hooks/update'
 import useTheme from './hooks/theme'
 
 
+import Demo from './context'
+
+
 function App() {
 
   const myFunction = () => {
@@ -45,9 +48,12 @@ function App() {
     return <div style={props.style}>{props.count}</div>;
   });
 
-
+  const listProps = [{ name: 'text' }]
   return (
     <div className="App">
+
+      <Demo {...listProps}/>
+
       <header className="App-header">
         {/* theme */}
         {/* <button className="button">Button</button> */}
