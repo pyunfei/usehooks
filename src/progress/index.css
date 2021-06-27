@@ -1,0 +1,10 @@
+@keyframes play{
+to{width:100%}
+}
+@keyframes replay{
+to{width:100%}
+}
+.container{height:10px;border-radius:5px;border:1px solid #000}
+.progress{height:100%;width:0;background-color:red;animation-timing-function:linear}
+.progress.play{animation-play-state:running}
+.progress.pause{animation-play-state:paused}
