@@ -6,7 +6,7 @@ import useAsync from './hooks/async'
 import useEventListener from './hooks/event'
 import useWhyDidYouUpdate from './hooks/update'
 import useTheme from './hooks/theme'
-import Progress from './progress'
+// import Progress from './progress'
 
 import Demo from './context'
 
@@ -52,7 +52,8 @@ function App() {
   return (
     <div className="App">
 
-      <Progress />
+      {/* <Progress /> */}
+      <div>""_ _ ""</div>
 
       <Demo {...listProps}/>
 
