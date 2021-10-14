@@ -35,7 +35,7 @@ const ListDemo = () => {
     setCount((v) => v + 1);
     const data = await getData(count === 1);
     setErrorList((v) => [...v, ...data]);
-    if (list.length >= 30) {
+    if (errorList.length >= 30) {
       setFinished(true);
     }
   };
@@ -43,7 +43,7 @@ const ListDemo = () => {
 
   return <div>
     {
-      true ? <List finished={finished} onLoad={onLoad}>
+      false ? <List finished={finished} onLoad={onLoad}>
         {list.length
           ? list.map((_, i) => {
             return <div className="item" key={i} >{i + 1}</div>;

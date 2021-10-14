@@ -54,7 +54,7 @@ export type ListProps = {
 
 export type ListInstance = {
   /** 检查当前的滚动位置，若已滚动至底部，则会触发 onLoad 事件	 */
-  check: () => void;
+  handle: () => void;
   state: {
     loading: boolean;
     error: boolean;

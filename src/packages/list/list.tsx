@@ -35,15 +35,15 @@ const List: React.FC<ListProps> = (props) => {
       return;
     }
 
-    let isReachEdge = false;
+    let range = false;
     const placeholderRect = getRect(placeholder.current);
 
     if (direction === 'up') {
-      isReachEdge = scrollParentRect.top - placeholderRect.top <= offset!;
+      range = scrollParentRect.top - placeholderRect.top <= offset!;
     } else {
-      isReachEdge = placeholderRect.bottom - scrollParentRect.bottom <= offset!;
+      range = placeholderRect.bottom - scrollParentRect.bottom <= offset!;
     }
-    if (isReachEdge) {
+    if (range) {
       try {
         upState({ loading: true });
         if (onLoad) await onLoad();
@@ -85,7 +85,7 @@ const List: React.FC<ListProps> = (props) => {
     return null;
   };
 
-  const Placeholder = <div ref={placeholder} />;
+  const Placeholder = <div ref={placeholder} style={{ height: 0, pointerEvents: 'none' }} />;
 
   useUpdateEffect(() => {
     if (props.autoCheck) {
