@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react';
 
-const useUpdateEffect = (effect, deps) => {
-  const isMounted = useRef(false);
+const useUpdateEffect: typeof useEffect = (effect, deps) => {
+  const target = useRef(false);
 
   useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true;
+    if (!target.current) {
+      target.current = true;
     } else {
       return effect();
     }

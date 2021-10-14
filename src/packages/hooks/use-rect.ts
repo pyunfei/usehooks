@@ -1,5 +1,15 @@
-const useRect = (el) => {
-  const element = el;
+const isWindow = (val: unknown): val is Window => val === window;
+interface Rect {
+  top: number;
+  left: number;
+  right: number;
+  bottom: number;
+  width: number;
+  height: number;
+}
+
+const useRect = (elementRef: Element | Window): Rect => {
+  const element = elementRef;
 
   if (isWindow(element)) {
     const width = element.innerWidth;
@@ -27,11 +37,7 @@ const useRect = (el) => {
     width: 0,
     height: 0,
   };
-
-}
-function isWindow(val) {
-  return val === window;
-}
+};
 
 export { useRect as getRect };
 
