@@ -1,5 +1,5 @@
 const isWindow = (val: unknown): val is Window => val === window;
-interface Rect {
+type Rect = {
   top: number;
   left: number;
   right: number;
@@ -8,8 +8,7 @@ interface Rect {
   height: number;
 }
 
-const useRect = (elementRef: Element | Window): Rect => {
-  const element = elementRef;
+const useRect = (element: Element | Window): Rect => {
 
   if (isWindow(element)) {
     const width = element.innerWidth;

@@ -93,9 +93,9 @@ const List: React.FC<ListProps> = (props) => {
     }
   }, [state.loading, props.finished, props.error]);
 
-  useUpdateEffect(() => {
-    upState({ loading: props.loading, error: props.error });
-  }, [props.loading, props.error]);
+  // useUpdateEffect(() => {
+  //   upState({ loading: props.loading, error: props.error });
+  // }, [props.loading, props.error]);
 
   useUpdateEffect(() => {
     if (scrollParent.current && props.immediateCheck) {
