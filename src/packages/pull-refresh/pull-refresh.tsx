@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import { PullRefreshProps } from '.'
 import { getScrollTop } from '../../utils/scroll'
 import { getScrollParent } from '../hooks/use-scroll-parent'
-import useTouch from '../hooks/use-touch'
+// import useTouch from '../hooks/use-touch'
 
 const PullRefresh: React.FC<PullRefreshProps> = (props) => {
   const { onRefresh } = props
@@ -11,13 +11,13 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
 
   const reachTop = useRef();
 
-  const touch = useTouch();
+  // const touch = useTouch();
 
   const checkPosition = (event: TouchEvent) => {
     const scrollTarget = getScrollParent(event.target as HTMLElement);
     //@ts-ignore
     reachTop.current = getScrollTop(scrollTarget) === 0;
-    touch.start(event);
+    // touch.start(event);
     console.log('%c [ reachTop.current ]-17', 'font-size:13px; background:pink; color:#bf2c9f;', reachTop.current)
   };
 
