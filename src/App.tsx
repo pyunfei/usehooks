@@ -1,9 +1,12 @@
-import List from './packages/list/demo'
+
+// import List from './packages/list/demo'
+import PullRefresh from './packages/pull-refresh/demo'
 
 function App() {
   return (
     <div className="App">
-      <List />
+      {/* <List /> */}
+      <PullRefresh />
     </div>
   );
 }

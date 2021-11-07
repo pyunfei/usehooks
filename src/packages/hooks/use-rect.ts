@@ -8,7 +8,7 @@ type Rect = {
   height: number;
 }
 
-const useRect = (element: Element | Window): Rect => {
+const useRect: RectType = (element: Element | Window): Rect => {
 
   if (isWindow(element)) {
     const width = element.innerWidth;
@@ -37,6 +37,11 @@ const useRect = (element: Element | Window): Rect => {
     height: 0,
   };
 };
+
+type ReturnType<T> = T extends (...args: any[]) => infer P ? P : never
+type RectType = (element: Element | Window) => Rect
+
+export type test = ReturnType<RectType>
 
 export { useRect as getRect };
 
